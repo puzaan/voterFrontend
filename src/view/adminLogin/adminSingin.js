@@ -10,7 +10,7 @@ import Container from '@material-ui/core/Container';
 import { Link } from 'react-router-dom'
 import { Grid } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../../Action/UserLoginAction'
+import { login } from '../../Action/AdminLoginAction'
 import { useHistory } from "react-router-dom";
 
 import Loder from '../../component/Loder';
@@ -45,20 +45,20 @@ const WhiteTextTypography = withStyles({
     }
 })(Typography);
 
-export default function SignIn({ history, location }) {
+export default function AdminSingin({ history, location }) {
     const classes = useStyles();
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const dispatch = useDispatch();
-    const userLogin = useSelector((state) => state.userLogin)
-    const { loding, error, userInfo } = userLogin;
-    const redirect = location.search ? location.search.split("=")[1] : "/abc";
+    const adminLogin = useSelector((state) => state.adminLogin)
+    const { loding, error, adminInfo } = adminLogin;
+    const redirect = location.search ? location.search.split("=")[1] : "/dashboard";
     useEffect(() => {
-        if (userInfo) {
+        if (adminInfo) {
             history.push(redirect)
         }
-        console.log(userInfo)
-    }, [userInfo, redirect, history]);
+        console.log(adminInfo)
+    }, [adminInfo, redirect, history]);
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -79,9 +79,10 @@ export default function SignIn({ history, location }) {
                 <Typography component="h1" variant="h5">
                     volunteer Management
                 </Typography>
-                <Typography style={{ color: "#FF0000"}} subtitle1='h2' variant="h6">
-            Booth Data Collection
-          </Typography>
+                <WhiteTextTypography subtitle1='h2' variant="h6">
+                    Booth Data Collection
+                </WhiteTextTypography>
+                
                 <form className={classes.form} noValidate onSubmit={submitHandler}>
                     <TextField
                         variant="outlined"

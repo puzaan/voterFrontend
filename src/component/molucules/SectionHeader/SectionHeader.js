@@ -122,7 +122,7 @@ const SectionHeader = props => {
       </Grid>
       {subtitle && (
         <Grid item xs={12} className="section-header__subtitle-wrapper">
-          <WhiteTextTypography
+          <Typography
             variant={subtitleVariant || 'h6'}
             align={align || 'center'}
             color={subtitleColor || 'textSecondary'}
@@ -130,7 +130,7 @@ const SectionHeader = props => {
             {...subtitleProps}
           >
             {subtitle}
-          </WhiteTextTypography>
+          </Typography>
         </Grid>
       )}
       {ctaGroup && ctaGroup.length && (
