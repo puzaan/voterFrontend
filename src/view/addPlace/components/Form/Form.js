@@ -13,7 +13,11 @@ import FormLabel from '@material-ui/core/FormLabel';
 import {useDispatch, useSelector} from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import Alerts from '../../../../component/Alert';
-import {addPlaceAction} from '../../../../Action/addPlaceAction'
+import { addPlaceAction } from '../../../../Action/addPlaceAction'
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import {provisons, districts} from './datas'
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
@@ -40,7 +44,6 @@ const boothValue = [
   },
   
 ];
-
 const schema = {
   fedConstituency: {
     presence: { allowEmpty: false, message: 'is required' },
@@ -138,7 +141,7 @@ const Form = (props) => {
 
     if (formState.isValid) {
       dispatch(
-        addPlaceAction(data, provision, formState.values.district, formState.values.fedConstituency, formState.values.provConstituency, formState.values.localBody, formState.values.ward,booth )
+        addPlaceAction(data, provision, district, formState.values.fedConstituency, formState.values.provConstituency, formState.values.localBody, formState.values.ward,booth )
       )
       history.push('/userlist')
     }
@@ -155,12 +158,18 @@ const Form = (props) => {
     formState.touched[field] && formState.errors[field] ? true : false;
 
   
-  const [provision, setProvision] = React.useState('1');
+  const [provision, setProvision] = React.useState('Arun');
   const [booth, setbooth] = React.useState([]);
   console.log(booth)
   const handleChanges = (event) => {
     setProvision(event.target.value);
   };
+  const [district, setDistrict] = React.useState('Bhojpur District');
+
+  const districtChange = (event) => {
+    setDistrict(event.target.value);
+  };
+  
 
   return (
     <div className={classes.root}>
@@ -170,32 +179,53 @@ const Form = (props) => {
             <FormControl component="fieldset">
               <FormLabel component="legend">Provision</FormLabel>
               <RadioGroup aria-label="gender" name="gender1" value={provision} onChange={handleChanges} row={true}>
-                <FormControlLabel value="1" control={<Radio />} label="1" />
-                <FormControlLabel value="2" control={<Radio />} label="2" />
-                <FormControlLabel value="3" control={<Radio />} label="3" />
-                <FormControlLabel value="4" control={<Radio />} label="4" />
-                <FormControlLabel value="5" control={<Radio />} label="5" />
+                {provisons.map((data) => (
+                  <FormControlLabel value={data.name} control={<Radio />} label={data.name} />
+
+                ))}
               </RadioGroup>
             </FormControl>
 
           </Grid>
-          <Grid item xs={12}>
-            <TextField
-              placeholder="District"
-              label="District *"
-              variant="outlined"
-              size="medium"
-              name="district"
-              fullWidth
-              helperText={
-                hasError('district') ? formState.errors.district[0] : null
-              }
-              error={hasError('district')}
-              onChange={handleChange}
-              type="district"
-              value={formState.values.district || ''}
-            />
-          </Grid>
+          {/* <div>
+            <FormControl sx={{ minWidth: 1000 }}>
+              <InputLabel id="demo-simple-select-autowidth-label">Age</InputLabel>
+              <Select
+                labelId="demo-simple-select-autowidth-label"
+                id="demo-simple-select-autowidth"
+                value={district}
+                onChange={districtChange}
+                autoWidth
+                label="Age"
+              >
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                <MenuItem value={10}>Twenty</MenuItem>
+                <MenuItem value={21}>Twenty one</MenuItem>
+                <MenuItem value={22}>Twenty one and a half</MenuItem>
+              </Select>
+            </FormControl>
+            </div> */}
+
+
+          <Grid item xs={12} md= {12}>
+            <FormControl fullWidth = 'true' >
+              <InputLabel id="demo-simple-select-autowidth-label">District</InputLabel>
+              <Select
+                labelId="demo-simple-select-autowidth-label"
+                id="demo-simple-select-autowidth"
+                value={district}
+                onChange={districtChange}
+              >
+                {districts.map((data) => (
+                  <MenuItem value={data.name}>{data.name}</MenuItem>
+
+                ))}
+              </Select>
+            </FormControl>
+            </Grid>
+          
           <Grid item xs={12}>
             <TextField
               placeholder="ProvConstituency"
@@ -230,21 +260,6 @@ const Form = (props) => {
           </Grid>
           <Grid item xs={12}>
             <TextField
-              placeholder="ward No"
-              label="ward No *"
-              variant="outlined"
-              size="medium"
-              name="ward"
-              fullWidth
-              helperText={hasError('ward') ? formState.errors.ward[0] : null}
-              error={hasError('ward')}
-              onChange={handleChange}
-              type="Number"
-              value={formState.values.ward || ''}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
               placeholder="localBody"
               label="localBody *"
               variant="outlined"
@@ -262,6 +277,22 @@ const Form = (props) => {
           </Grid>
           <Grid item xs={12}>
             <TextField
+              placeholder="ward No"
+              label="ward No *"
+              variant="outlined"
+              size="medium"
+              name="ward"
+              fullWidth
+              helperText={hasError('ward') ? formState.errors.ward[0] : null}
+              error={hasError('ward')}
+              onChange={handleChange}
+              type="Number"
+              value={formState.values.ward || ''}
+            />
+          </Grid>
+          
+          {/* <Grid item xs={12}>
+            <TextField
               placeholder="Booth"
               label="Booth *"
               variant="outlined"
@@ -276,7 +307,7 @@ const Form = (props) => {
               type="booth"
               value={formState.values.booth || ''}
             />
-          </Grid>
+          </Grid> */}
           <Grid item xs={12}>
             <FormControl component="fieldset">
               <Typography variant="body1">

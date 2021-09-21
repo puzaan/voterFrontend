@@ -4,8 +4,8 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { userLoginReducer, userRegisterReducer, userDetailsReducer, userListReducer} from './Reducers/UserLoginReducer'
 import { adminLoginReducer } from './Reducers/AdminLoginReducer'
 import { boothListReducer } from './Reducers/BoothsReducers'
-import { voterListReducer } from './Reducers/VoterReducer'
-import { placeAssigneReducer} from './Reducers/addPlaceReduicer'
+import { voterListReducer, BoothVoterListReducer } from './Reducers/VoterReducer'
+import { placeAssigneReducer, placeAssigneListReducer} from './Reducers/addPlaceReduicer'
 const reducer = combineReducers({
     userLogin: userLoginReducer,
     userRegister: userRegisterReducer,
@@ -15,6 +15,8 @@ const reducer = combineReducers({
     voterList: voterListReducer,
     userList: userListReducer,
     addPlace: placeAssigneReducer,
+    placeList: placeAssigneListReducer,
+    boothVoter: BoothVoterListReducer,
 })
 
 const userInfoFromStorage = localStorage.getItem("userInfo")

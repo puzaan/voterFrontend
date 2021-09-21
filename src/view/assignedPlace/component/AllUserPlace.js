@@ -10,7 +10,7 @@ import Paper from '@mui/material/Paper';
 import { listUsers} from '../../../Action/UserLoginAction'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
         backgroundColor: theme.palette.common.black,
@@ -79,7 +79,7 @@ export default function AllUserPlace() {
                             <StyledTableCell align="right">{row.sex}</StyledTableCell>
                             <StyledTableCell align="right">{row.dob}</StyledTableCell>
                             {row.assined.length < 1 ? (<StyledTableCell align="right">
-                                <Link to={`/assign/${row._id}`}>Add Place </Link>
+                                <Link style={{ padding: 23, textDecoration: 'none', fontSize: 'large' }} to={`/assign/${row._id}`}><AddCircleIcon /> </Link>
                             
                             </StyledTableCell>) : (
                                 <StyledTableCell align="right">Place is assined</StyledTableCell>

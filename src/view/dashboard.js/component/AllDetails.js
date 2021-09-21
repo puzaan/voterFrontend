@@ -11,7 +11,9 @@ import HowToVoteIcon from '@mui/icons-material/HowToVote';
 import { useDispatch, useSelector } from 'react-redux';
 import { listAllBooth } from '../../../Action/BoothAction'
 import { listAllVoter } from '../../../Action/VoterAction'
-import {listUsers} from '../../../Action/UserLoginAction'
+import { listUsers } from '../../../Action/UserLoginAction'
+import { Link } from 'react-router-dom'
+
 const useStyles = makeStyles(theme => ({
     cardBase: {
         '&:hover': {
@@ -70,6 +72,7 @@ const AllDetails = (props,{  history, match }) => {
             />
             <Grid container spacing={isMd ? 4 : 2}>
                 <Grid item xs={12} sm={4} data-aos="fade-up">
+                    <Link to='/userlist' style={{textDecoration: 'none' }}>
                     <CardBase withShadow liftUp className={classes.cardBase}>
                         <div>
                             <NoSsr>
@@ -87,9 +90,11 @@ const AllDetails = (props,{  history, match }) => {
                             All Team Member: ({users.length})
                         </Typography>
                     </CardBase>
+                    </Link>
                 </Grid>
 
                 <Grid item xs={12} sm={4} data-aos="fade-up">
+                    <Link to='/booth' style={{textDecoration: 'none' }}>
                     <CardBase withShadow liftUp className={classes.cardBase}>
                         <div>
                             <NoSsr>
@@ -106,8 +111,10 @@ const AllDetails = (props,{  history, match }) => {
                             All Booth: ({booths.length})
                         </Typography>
                     </CardBase>
+                    </Link>
                 </Grid>
                 <Grid item xs={12} sm={4} data-aos="fade-up">
+                    {/* <Link to='/userlist' style={{textDecoration: 'none' }}> */}
                     <CardBase withShadow liftUp className={classes.cardBase}>
                         <div>
                             <NoSsr>
@@ -126,6 +133,7 @@ const AllDetails = (props,{  history, match }) => {
                             All Voter: ({voters.results})
                         </Typography>
                     </CardBase>
+                    {/* </Link> */}
                 </Grid>
             
             </Grid>
