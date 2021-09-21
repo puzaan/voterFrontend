@@ -1,3 +1,5 @@
+
+
 import * as React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -15,11 +17,11 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { SidebarData } from './SidebarData'
+import { SidebarData } from '../../dashboard.js/component/SidebarData'
 import { Link } from 'react-router-dom';
-import AllDetails from './AllDetails'
+import AllPlace from './AllPlace';
 import LoginIcon from '@mui/icons-material/Login';
-import {logout} from '../../../Action/AdminLoginAction'
+import { logout } from '../../../Action/AdminLoginAction'
 import { useDispatch, useSelector } from 'react-redux';
 
 const drawerWidth = 240;
@@ -70,7 +72,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     justifyContent: 'flex-end',
 }));
 
-export default function Dashboard() {
+export default function PlaceAssigne() {
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
 
@@ -103,7 +105,7 @@ export default function Dashboard() {
                         <MenuIcon />
                     </IconButton>
                     <Typography align='center' variant="h6" noWrap component="div">
-                        Dashboard Page
+                        Place Assigned List
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -129,12 +131,12 @@ export default function Dashboard() {
                 <List>
                     {SidebarData.map((text, index) => (
                         <ListItem button key={index}>
-                            
+
                             <ListItemIcon>
                                 {text.icon}
                             </ListItemIcon>
                             <Link to={text.path} style={{ textDecoration: 'none' }}>
-                            <ListItemText primary={text.title} />
+                                <ListItemText primary={text.title} />
                             </Link>
                         </ListItem>
                     ))}
@@ -143,7 +145,7 @@ export default function Dashboard() {
                         <ListItemIcon>
                             <LoginIcon />
                         </ListItemIcon>
-                        <Link to ='/' style={{ textDecoration: 'none' }} onClick={ logoutHandler}>
+                        <Link to='/' style={{ textDecoration: 'none' }} onClick={logoutHandler}>
                             <ListItemText> LogOut</ListItemText>
                         </Link>
                     </ListItem>
@@ -152,7 +154,7 @@ export default function Dashboard() {
             </Drawer>
             <Main open={open}>
                 <DrawerHeader />
-                <AllDetails />
+                <AllPlace />
             </Main>
         </Box>
     );

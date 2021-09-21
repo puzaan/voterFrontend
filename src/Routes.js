@@ -1,11 +1,11 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { SignIn, SignUp, adminSignIn, dashboard } from './view'
-import Navbar from './component/Navbar';
+import { SignIn, SignUp, adminSignIn, dashboard, Kaadders, booth, assignedPlace, addPlace  } from './view'
 const Routes = () => {
     return (
         
         <Switch>
+            
             <Route
                 exact
                 path="/user"
@@ -27,6 +27,25 @@ const Routes = () => {
 
                 path="/dashboard"
                 component={dashboard}
+            />
+            <Route
+
+                path="/userlist"
+                component={Kaadders}
+            />
+            <Route
+
+                path="/booth"
+                component={booth}
+            />
+            <Route
+
+                path="/assignedist"
+                component={assignedPlace}
+            />
+            <Route
+                path="/assign/:id"
+                component={addPlace}
             />
             
         </Switch>

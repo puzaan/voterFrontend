@@ -110,7 +110,7 @@ export const listUsers = () => async (dispatch, getState) => {
             },
         };
 
-        const { data } = await axios.get("http://localhost:5000/api/user/alluser", config);
+        const { data } = await axios.get("https://polar-beach-17297.herokuapp.com/api/user/alluser", config);
 
         dispatch({
             type: USER_LIST_SUCCESS,

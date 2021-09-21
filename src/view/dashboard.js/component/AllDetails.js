@@ -84,10 +84,11 @@ const AllDetails = (props,{  history, match }) => {
                             noWrap
                             className={clsx(classes.title, 'card-title')}
                         >
-                            All Kaaders: ({users.length})
+                            All Team Member: ({users.length})
                         </Typography>
                     </CardBase>
                 </Grid>
+
                 <Grid item xs={12} sm={4} data-aos="fade-up">
                     <CardBase withShadow liftUp className={classes.cardBase}>
                         <div>
@@ -102,7 +103,7 @@ const AllDetails = (props,{  history, match }) => {
                             noWrap
                             className={clsx(classes.title, 'card-title')}
                         >
-                            All Booth: ({booths.results})
+                            All Booth: ({booths.length})
                         </Typography>
                     </CardBase>
                 </Grid>
