@@ -44,7 +44,7 @@ export const listBoothDetails = (id) => async (dispatch, getState) => {
             },
         };
         const { data } = await axios.get(
-            `http://localhost:5000/api/booth/${id}`,
+            `https://polar-beach-17297.herokuapp.com/api/booth/${id}`,
             config
         );
 

@@ -44,7 +44,7 @@ export const listBoothAllVoter = (id) => async (dispatch, getState) => {
             },
         };
         const { data } = await axios.get(
-            `http://localhost:5000/api/booth/${id}/vooter`,
+            `https://polar-beach-17297.herokuapp.com/api/booth/${id}/vooter`,
             config
         );
 
