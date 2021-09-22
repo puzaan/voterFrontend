@@ -13,11 +13,12 @@ import { listAllBooth } from '../../../Action/BoothAction'
 import { listAllVoter } from '../../../Action/VoterAction'
 import { listUsers } from '../../../Action/UserLoginAction'
 import { Link } from 'react-router-dom'
+import Avatar from '@material-ui/core/Avatar';
 
 const useStyles = makeStyles(theme => ({
     cardBase: {
         '&:hover': {
-            background: theme.palette.primary.main,
+            background: "#EC3434",
             '& .card-icon, & .card-title': {
                 color: 'white',
             },
@@ -25,7 +26,7 @@ const useStyles = makeStyles(theme => ({
     },
     icon: {
         fontSize: 60,
-        color: theme.palette.primary.main,
+        color: "#EC3434",
         [theme.breakpoints.up('sm')]: {
             fontSize: 80,
         },        
@@ -37,11 +38,23 @@ const useStyles = makeStyles(theme => ({
         },
     },
     formControl: {
-        margin: theme.spacing(1),
-        minWidth: 120,
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
     },
-    selectEmpty: {
-        marginTop: theme.spacing(2),
+    paper: {
+        marginBottom: theme.spacing(5),
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
+    avatar: {
+        // margin: theme.spacing(0.5),
+        //backgroundColor: theme.palette.secondary.main,
+        width: theme.spacing(20),
+        height: theme.spacing(20),
     },
 }));
 
@@ -72,12 +85,21 @@ const AllDetails = (props,{  history, match }) => {
     }, [dispatch, vdispatch, udispatch])  
     return (
         <div className={className} {...rest}>
+            
+            <Grid item xs={12}>
+                <div className={classes.paper}>
+                    <Avatar className={classes.avatar} alt="Bemy Sharp" src="https://upload.wikimedia.org/wikipedia/commons/3/39/CPN-UML.svg">
+
+                    </Avatar>
+                </div>
+            </Grid>
             <SectionHeader
                 title="All Details "
-               // subtitle="After 3 days all of your offers will arrive and you will have another 7 days to select your new company."
+                // subtitle="After 3 days all of your offers will arrive and you will have another 7 days to select your new company."
                 data-aos="fade-up"
             />
             <Grid container spacing={isMd ? 4 : 2}>
+                
                 <Grid item xs={12} sm={4} data-aos="fade-up">
                     <Link to='/userlist' style={{textDecoration: 'none' }}>
                     <CardBase withShadow liftUp className={classes.cardBase}>

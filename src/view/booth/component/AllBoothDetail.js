@@ -12,9 +12,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import AddIcon from '@mui/icons-material/Add';
 import FilterListIcon from '@mui/icons-material/FilterList';
+import { Typography } from '@material-ui/core';
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
-        backgroundColor: theme.palette.common.black,
+        backgroundColor: theme.palette.common.red,
         color: theme.palette.common.white,
     },
     [`&.${tableCellClasses.body}`]: {
@@ -43,9 +44,12 @@ export default function AllBoothDetail() {
     console.log(booths)
     return (
         <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 700 }} aria-label="customized table">
-                <TableHead>
-                    <TableRow>
+            <Typography style={{ padding: '10px' }}variant="h3" component="h3">
+                {`Arun Provence all booth`}
+            </Typography>
+            <Table sx={{ minWidth: 700 }} aria-label="customized table" >
+                <TableHead style={{ backgroundColor: '#EC3434' }}>
+                    <TableRow  >
                         <StyledTableCell>Booth Name</StyledTableCell>
                         <StyledTableCell align="right">UML</StyledTableCell>
                         <StyledTableCell align="right">May-be</StyledTableCell>

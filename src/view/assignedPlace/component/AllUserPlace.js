@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
-        backgroundColor: theme.palette.common.black,
+        backgroundColor: theme.palette.common.red,
         color: theme.palette.common.white,
     },
     [`&.${tableCellClasses.body}`]: {
@@ -55,7 +55,7 @@ export default function AllUserPlace() {
     return (
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 700 }} aria-label="customized table">
-                <TableHead>
+                <TableHead style={{ backgroundColor: '#EC3434' }}>
                     <TableRow>
                         <StyledTableCell>Name</StyledTableCell>
                         <StyledTableCell align="right">Email</StyledTableCell>

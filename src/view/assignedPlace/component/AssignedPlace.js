@@ -91,7 +91,7 @@ export default function AssignedPlace() {
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar position="fixed" open={open}>
+            <AppBar style={{ backgroundColor: '#EC3434' }} position="fixed" open={open}>
                 <Toolbar>
                     <IconButton
                         color="inherit"

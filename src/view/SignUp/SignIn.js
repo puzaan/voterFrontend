@@ -68,10 +68,8 @@ export default function SignIn({ history, location }) {
     }
     return (
         <Container component="main" maxWidth="xs">
-            <Grid item xs={12}>
-
-            </Grid>
-            {/* <CssBaseline /> */}
+            
+            <Grid item xs={12} md ={4}>
             <div className={classes.paper}>
                 <Avatar className={classes.avatar} alt="Bemy Sharp" src="https://upload.wikimedia.org/wikipedia/commons/3/39/CPN-UML.svg">
 
@@ -132,6 +130,7 @@ export default function SignIn({ history, location }) {
                     </Typography>
                 </form>
             </div>
+            </Grid>
         </Container>
     );
 }

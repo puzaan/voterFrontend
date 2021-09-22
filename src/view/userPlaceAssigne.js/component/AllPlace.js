@@ -1,17 +1,3 @@
-// import React from 'react'
-
-// const AllPlace = () => {
-//     return (
-//         <div>
-//             list is here
-//         </div>
-//     )
-// }
-
-
-// export default AllPlace
-
-
 import React, { useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
@@ -26,7 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
-        backgroundColor: theme.palette.common.black,
+        backgroundColor: theme.palette.common.red,
         color: theme.palette.common.white,
     },
     [`&.${tableCellClasses.body}`]: {
@@ -56,7 +42,7 @@ export default function AllPlace() {
     return (
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 700 }} aria-label="customized table">
-                <TableHead>
+                <TableHead style={{ backgroundColor: '#EC3434' }}>
                     <TableRow>
                         <StyledTableCell>Team Member</StyledTableCell>
                         <StyledTableCell align="right">Provison  </StyledTableCell>

@@ -93,7 +93,7 @@ export default function PlaceAssigne() {
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar position="fixed" open={open}>
+            <AppBar position="fixed" open={open} style={{ backgroundColor: '#EC3434' }}>
                 <Toolbar>
                     <IconButton
                         color="inherit"
