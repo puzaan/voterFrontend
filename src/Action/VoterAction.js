@@ -1,5 +1,5 @@
 import axios from "axios";
-import { VOTER_LIST_FAIL, VOTER_LIST_REQUEST, VOTER_LIST_SUCCESS } from "../Constants/voterConstants";
+import { BOOTH_VOTER_LIST_FAIL, BOOTH_VOTER_LIST_REQUEST, BOOTH_VOTER_LIST_SUCCESS, VOTER_LIST_FAIL, VOTER_LIST_REQUEST, VOTER_LIST_SUCCESS } from "../Constants/voterConstants";
 
 export const listAllVoter = () => async (dispatch, getState) => {
     try {
@@ -36,7 +36,7 @@ export const listAllVoter = () => async (dispatch, getState) => {
 
 export const listBoothAllVoter = (id) => async (dispatch, getState) => {
     try {
-        dispatch({ type: VOTER_LIST_REQUEST });
+        dispatch({ type: BOOTH_VOTER_LIST_REQUEST });
         const { adminLogin: { adminInfo } } = getState()
         const config = {
             headers: {
@@ -49,12 +49,12 @@ export const listBoothAllVoter = (id) => async (dispatch, getState) => {
         );
 
         dispatch({
-            type: VOTER_LIST_SUCCESS,
+            type: BOOTH_VOTER_LIST_SUCCESS,
             payload: data,
         });
     } catch (error) {
         dispatch({
-            type: VOTER_LIST_FAIL,
+            type: BOOTH_VOTER_LIST_FAIL,
             payload:
                 error.response && error.response.data.message
                     ? error.response.data.message

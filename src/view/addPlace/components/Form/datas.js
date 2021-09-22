@@ -1,7 +1,5 @@
 export const provisons = [
-    {
-        name: 'Arun'
-    },
+    
     {
         name: 'Janakpur'
     },

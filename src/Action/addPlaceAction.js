@@ -44,7 +44,7 @@ export const listAllPlace = () => async (dispatch, getState) => {
 
 
         const { data } = await axios.get(
-            `http://localhost:5000/api/place/all`,
+            `https://polar-beach-17297.herokuapp.com/api/place/all`,
             config
         );
 

@@ -36,6 +36,13 @@ const useStyles = makeStyles(theme => ({
             marginTop: theme.spacing(6),
         },
     },
+    formControl: {
+        margin: theme.spacing(1),
+        minWidth: 120,
+    },
+    selectEmpty: {
+        marginTop: theme.spacing(2),
+    },
 }));
 
 const AllDetails = (props,{  history, match }) => {
@@ -54,7 +61,7 @@ const AllDetails = (props,{  history, match }) => {
     const { booths } = boothList
     const voterList = useSelector((state) => state.voterList)
     const { voters } = voterList
-    
+    console.log(voters.length)
     const userList = useSelector((state) => state.userList)
     const { users } = userList
     useEffect(() => {
@@ -130,7 +137,7 @@ const AllDetails = (props,{  history, match }) => {
                             noWrap
                             className={clsx(classes.title, 'card-title')}
                         >
-                            All Voter: ({voters.results})
+                            All Voter: ({voters.length})
                         </Typography>
                     </CardBase>
                     {/* </Link> */}

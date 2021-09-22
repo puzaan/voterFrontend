@@ -3,7 +3,7 @@ import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { userLoginReducer, userRegisterReducer, userDetailsReducer, userListReducer} from './Reducers/UserLoginReducer'
 import { adminLoginReducer } from './Reducers/AdminLoginReducer'
-import { boothListReducer } from './Reducers/BoothsReducers'
+import { boothListReducer, boothDetailsReducer } from './Reducers/BoothsReducers'
 import { voterListReducer, BoothVoterListReducer } from './Reducers/VoterReducer'
 import { placeAssigneReducer, placeAssigneListReducer} from './Reducers/addPlaceReduicer'
 const reducer = combineReducers({
@@ -17,6 +17,7 @@ const reducer = combineReducers({
     addPlace: placeAssigneReducer,
     placeList: placeAssigneListReducer,
     boothVoter: BoothVoterListReducer,
+    voterBooth: boothDetailsReducer,
 })
 
 const userInfoFromStorage = localStorage.getItem("userInfo")

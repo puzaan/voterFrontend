@@ -15,7 +15,7 @@ export const login = (email, password) => async (dispatch) => {
             type: ADMIN_LOGIN_REQUEST,
         });
 
-        const { data } = await axios.post("http://localhost:5000/api/admin/login", {
+        const { data } = await axios.post("https://polar-beach-17297.herokuapp.com/api/admin/login", {
             email,
             password,
         });

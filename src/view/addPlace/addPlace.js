@@ -1,15 +1,3 @@
-// import React from 'react'
-
-// const addPlace = () => {
-//     return (
-//         <div>
-//             added
-//         </div>
-//     )
-// }
-
-// export default addPlace
-
 import React from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { Form } from './components';

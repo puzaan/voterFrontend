@@ -8,19 +8,29 @@ import { Link } from 'react-router-dom'
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
+//import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import {useDispatch, useSelector} from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import Alerts from '../../../../component/Alert';
 import { addPlaceAction } from '../../../../Action/addPlaceAction'
-import InputLabel from '@mui/material/InputLabel';
+// import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
-import {provisons, districts} from './datas'
+//import Select from '@mui/material/Select';
+import { provisons, districts } from './datas'
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
+  },
+  formControl: {
+    //margin: theme.spacing(1),
+    minWidth: 500,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
   },
 }));
 
@@ -28,19 +38,19 @@ const useStyles = makeStyles(theme => ({
 const boothValue = [
   {
     id: '1',
-    courseName: 'abc',
+    courseName: 'Booth 1',
   },
   {
     id: '2',
-    courseName: 'bef',
+    courseName: 'Booth 2',
   },
   {
     id: '3',
-    courseName: 'fed',
+    courseName: 'Booth 3',
   },
   {
     id: '4',
-    courseName: 'cde',
+    courseName: 'Booth 4',
   },
   
 ];
@@ -177,40 +187,48 @@ const Form = (props) => {
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <FormControl component="fieldset">
-              <FormLabel component="legend">Provision</FormLabel>
+              <FormLabel component="legend">province </FormLabel>
               <RadioGroup aria-label="gender" name="gender1" value={provision} onChange={handleChanges} row={true}>
+                <FormControlLabel value='Arun' control={<Radio />} label='Arun' />
+
                 {provisons.map((data) => (
-                  <FormControlLabel value={data.name} control={<Radio />} label={data.name} />
+                  <FormControlLabel disabled value={data.name} control={<Radio />} label={data.name} />
 
                 ))}
               </RadioGroup>
             </FormControl>
 
           </Grid>
-          {/* <div>
-            <FormControl sx={{ minWidth: 1000 }}>
-              <InputLabel id="demo-simple-select-autowidth-label">Age</InputLabel>
-              <Select
-                labelId="demo-simple-select-autowidth-label"
-                id="demo-simple-select-autowidth"
-                value={district}
-                onChange={districtChange}
-                autoWidth
-                label="Age"
-              >
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                <MenuItem value={10}>Twenty</MenuItem>
-                <MenuItem value={21}>Twenty one</MenuItem>
-                <MenuItem value={22}>Twenty one and a half</MenuItem>
-              </Select>
-            </FormControl>
-            </div> */}
 
 
           <Grid item xs={12} md= {12}>
-            <FormControl fullWidth = 'true' >
+
+
+            <FormControl variant="outlined" className={classes.formControl}>
+              <InputLabel htmlFor="outlined-age-native-simple">District</InputLabel>
+              <Select
+                native
+                value={district}
+                onChange={districtChange}
+                label="District"
+                autoWidth="true"
+                inputProps={{
+                  name: 'District',
+                  id: 'outlined-age-native-simple',
+                }}
+              >
+                
+                {districts.map((data) => (
+                  <option value={data.name}>{data.name} </option>
+
+                ))}
+              </Select>
+            </FormControl>
+
+
+
+
+            {/* <FormControl fullWidth = 'true' >
               <InputLabel id="demo-simple-select-autowidth-label">District</InputLabel>
               <Select
                 labelId="demo-simple-select-autowidth-label"
@@ -223,7 +241,7 @@ const Form = (props) => {
 
                 ))}
               </Select>
-            </FormControl>
+            </FormControl> */}
             </Grid>
           
           <Grid item xs={12}>

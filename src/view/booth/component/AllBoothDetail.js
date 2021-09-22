@@ -71,8 +71,8 @@ export default function AllBoothDetail() {
                             <StyledTableCell align="right">{row.other}</StyledTableCell>
                             <StyledTableCell align="right">{row.totalVoter}</StyledTableCell>
                             <StyledTableCell align="right">
-                                <Link style={{textDecoration: 'none' }} to={`/addVoter/${row._id}`}><AddIcon /></Link>
-                                <Link style={{ textDecoration: 'none' }} to={`/voterList/${row._id}`}> <FilterListIcon /> </Link>
+                                <Link style={{textDecoration: 'none' }} ><AddIcon /></Link>
+                                <Link style={{ textDecoration: 'none' }} to={`/boothVooter/${row._id}`}> <FilterListIcon /> </Link>
                             </StyledTableCell>
 
                         </StyledTableRow>
