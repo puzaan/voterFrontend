@@ -51,10 +51,10 @@ export default function AllBoothDetail() {
                 <TableHead style={{ backgroundColor: '#EC3434' }}>
                     <TableRow  >
                         <StyledTableCell>Booth Name</StyledTableCell>
-                        <StyledTableCell align="right">UML</StyledTableCell>
+                        <StyledTableCell align="right">UML Party</StyledTableCell>
                         <StyledTableCell align="right">May-be</StyledTableCell>
                         <StyledTableCell align="right">No</StyledTableCell>
-                        <StyledTableCell align="right">abc</StyledTableCell>                       
+                        <StyledTableCell align="right">congress Party</StyledTableCell>
                         <StyledTableCell align="right">other</StyledTableCell>
                         <StyledTableCell align="right">Total voter </StyledTableCell>
                         <StyledTableCell align="right">Voter Option  </StyledTableCell>

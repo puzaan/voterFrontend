@@ -116,7 +116,7 @@ export default function AdminSingin({ history, location }) {
                         src="https://upload.wikimedia.org/wikipedia/commons/3/39/CPN-UML.svg"
                     ></Avatar>
                     <Typography className={classes.color} component="h1" variant="h5">
-                        volunteer Management
+                        Volunteer Management
                     </Typography>
                     <WhiteTextTypography subtitle1="h2" variant="h6">
                         Booth Data Collection
